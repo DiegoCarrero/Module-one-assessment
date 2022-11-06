@@ -41,7 +41,7 @@ describe("getAllMovieTitles()", () => {
   });
 });
 
-describe.only("getHighestMetascore()", () => {
+describe("getHighestMetascore()", () => {
   test("should return highest Metascore of all movies as a number", () => {
     const actual = getHighestMetascore(movies);
     const expected = 96;
@@ -77,7 +77,7 @@ describe("getAverageIMDBRating()", () => {
   });
 });
 
-describe("countByRating()", () => {
+describe.only("countByRating()", () => {
   test("should return an object where the keys are ratings and the values are the number of movies with that rating", () => {
     const actual = countByRating(movies);
     const expected = { G: 3, PG: 7 };
