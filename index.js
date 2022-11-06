@@ -86,15 +86,44 @@ function getAverageIMDBRating(movies) {
 /**
  * countByRating()
  * -----------------------------
- * Returns an object where the keys are movie ratings and the values are the number of movies in the array with that rating. If the inputted `movies` array is empty, return `{}`.
+ * Returns an object where the keys are movie ratings and the values are the number of movies in the array with 
+ * that rating. If the inputted `movies` array is empty, return `{}`.
  * @param {Object[]} movies - An array of movies. See the `movies.js` file for an example of this array.
- * @returns {Object} An object where keys are movie ratings (e.g. "PG") and the values are how many movies in the array have that rating (e.g. 7).
+ * @returns {Object} An object where keys are movie ratings (e.g. "PG") and the values are how many movies in 
+ * the array have that rating (e.g. 7).
  *
  * EXAMPLE:
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  const ratingCounts = {}
+  let gCount = 0;
+  let pgCount = 0;
+  let pg13Count = 0;
+  if (movies.length == 0) {
+    return ratingCounts;
+  } 
+  for (const movie of movies) {
+    if (movie.rated == 'G') {
+      gCount++;
+    } else if (movie.rated == 'PG') {
+      pgCount++;
+    } else {
+      pg13Count++;
+    }
+  }
+  if (gCount > 0) {
+    ratingCounts.G = gCount;
+  }
+  if (pgCount > 0) {
+    ratingCounts.PG = pgCount;
+  }
+  if (pg13Count > 0) {
+    ratingCounts['PG-13'] = pg13Count;
+  }  
+  return ratingCounts;
+}
 
 /**
  * findById()
