@@ -152,7 +152,8 @@ function findById(movies, id) {
 /**
  * filterByGenre()
  * -----------------------------
- * Returns all movie objects with a matching genre. Case-insensitive. If the inputted `movies` array is empty or no movies match the inputted `genre`, return `[]`.
+ * Returns all movie objects with a matching genre. Case-insensitive. If the inputted `movies` array is empty 
+ * or no movies match the inputted `genre`, return `[]`.
  * @param {Object[]} movies - An array of movies. See the `movies.js` file for an example of this array.
  * @param {string} genre - The genre of a movie. (e.g. "Fantasy")
  * @returns {Object[]} An array of movies where at least one of the genres matches the `genre` inputted.
@@ -169,7 +170,17 @@ function findById(movies, id) {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  const moviesInGenre = [];
+  genre = genre.toLowerCase();
+  for (movie of movies) {
+    movie.genre = movie.genre.toLowerCase();
+    if (movie.genre.includes(genre)) {
+      moviesInGenre.push(movie)
+    }
+  }
+  return moviesInGenre;
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
