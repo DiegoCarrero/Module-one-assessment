@@ -1,5 +1,6 @@
 /*
-  Do not change the line below. If you'd like to run code from this file, you may use the `exampleMovies` variable below to gain access to an array of movies.
+  Do not change the line below. If you'd like to run code from this file, you may use the `exampleMovies` 
+  variable below to gain access to an array of movies.
 
   Keep in mind that your functions must still have and use a parameter for accepting all movies.
 */
@@ -28,7 +29,13 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  const movieTitles = [];
+  for (let movie of movies) {
+    movieTitles.push(movie.title);
+  }
+  return movieTitles;
+}
 
 /**
  * getHighestMetascore()

@@ -12,7 +12,7 @@ const {
 const movies = require("../movies");
 const alternative = require("./fixtures/alternative-movies");
 
-describe("getAllMovieTitles()", () => {
+describe.only("getAllMovieTitles()", () => {
   test("should return all of the movie titles in an array", () => {
     const actual = getAllMovieTitles(movies);
     const expected = [
