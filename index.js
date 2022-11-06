@@ -31,7 +31,7 @@ const exampleMovies = require("./movies");
  */
 function getAllMovieTitles(movies) {
   const movieTitles = [];
-  for (let movie of movies) {
+  for (const movie of movies) {
     movieTitles.push(movie.title);
   }
   return movieTitles;
@@ -48,12 +48,21 @@ function getAllMovieTitles(movies) {
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  let highest = 0;
+  for (const movie of movies) {
+    if (highest < movie.metascore) {
+      highest = movie.metascore;
+    }
+  }
+  return +highest;
+}
 
 /**
  * getAverageIMDBRating()
  * -----------------------------
- * Averages all of the IMDB ratings from all movies and returns it, as a number. If the inputted `movies` array is empty, return `0`.
+ * Averages all of the IMDB ratings from all movies and returns it, as a number. If the inputted `movies` array 
+ * is empty, return `0`.
  * @param {Object[]} movies - An array of movies. See the `movies.js` file for an example of this array.
  * @returns {number} The average IMDB rating across all movies.
  *
@@ -61,7 +70,15 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  let sum = 0
+  let averageRating = 0
+  for (const movie of movies) {
+    sum += +movie.imdbRating;
+  }
+  averageRating = sum / movies.length;
+  return averageRating;
+}
 
 /**
  * countByRating()
